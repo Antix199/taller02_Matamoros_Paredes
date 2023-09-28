@@ -67,7 +67,7 @@ public class Hotel {
     }
 
     public void ejecutarMenu(int opcion) {
-        int habitacion = entradaUsuario();
+        int habitacion;
         int estado, opcionComida, dias;
         switch (opcion) {
             case 1:
@@ -108,6 +108,7 @@ public class Hotel {
                 reiniciarHotel();
                 break;
             case 8:
+                habitacion = scanner.nextInt();
                 pagarHabitacion(habitacion);
                 break;
             case 9:

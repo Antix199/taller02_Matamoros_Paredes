@@ -21,4 +21,21 @@ public class Hotel {
         }
     }
 
+    public void reservarHabitacion(int habitacion, int opcionComida, int dias) {
+        cambiarEstadoHabitacion(habitacion, 2); // Reservado
+        asignarComidas(habitacion, opcionComida);
+        establecerDias(habitacion, dias);
+        System.out.println("Habitación " + habitacion + " reservada exitosamente.");
+
+    }
+
+    public void cancelarReservacion(int habitacion) {
+        if (habitaciones[habitacion][0] != 2) {
+            System.out.println("La habitación " + habitacion + " no está reservada, no hay reservación que cancelar.");
+        } else {
+            cambiarEstadoHabitacion(habitacion, 0); // Disponible
+            System.out.println("La reservación de la habitación " + habitacion + " ha sido cancelada exitosamente.");
+        }
+    }
+
 }

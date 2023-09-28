@@ -4,10 +4,19 @@ public class Hotel {
     private int[][] habitaciones;
     private Scanner scanner;
     public static void main(String[] args){
-        Hotel hotel = new Hotel();
+        iniciarMain();
 
     }
 
+    public static void iniciarMain(){
+        Hotel hotel = new Hotel();
+        int opcion;
+        do {
+            hotel.mostrarMenu();
+            opcion = entradaUsuario();
+            hotel.ejecutarMenu(opcion);
+        } while (opcion != 9);
+    }
     public Hotel() {
         habitaciones = new int[10][3];
         scanner = new Scanner(System.in);

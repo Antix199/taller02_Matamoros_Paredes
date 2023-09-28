@@ -96,19 +96,24 @@ public class Hotel {
     }
 
     public void pagarHabitacion(int habitacion){
-        imprimirBoleta(habitacion);
-        System.out.println("¿Desea confirmar el pago de la habitación? /n 1.Confirmar /n 2.Cancelar");
-        int confirmacion = entradaUsuario();
-        switch (confirmacion){
-            case 1:
-                vaciarHabitacion(habitacion);
-                System.out.println("Pago registrado con éxito, habitación nuevamente disponible.");
-                break;
-            case 2:
-                break;
-            default:
-                System.out.println("Opción inválida. Por favor, seleccione una opción válida.");
+        if (habitaciones[habitacion][0]==1){
+            imprimirBoleta(habitacion);
+            System.out.println("¿Desea confirmar el pago de la habitación? /n 1.Confirmar /n 2.Cancelar");
+            int confirmacion = entradaUsuario();
+            switch (confirmacion) {
+                case 1:
+                    vaciarHabitacion(habitacion);
+                    System.out.println("Pago registrado con éxito, habitación nuevamente disponible.");
+                    break;
+                case 2:
+                    break;
+                default:
+                    System.out.println("Opción inválida. Por favor, seleccione una opción válida.");
+            }
         }
+        else{
+            System.out.println("Esta habitación no se encuentra ocupada");
+            }
     }
 
     public void reiniciarHotel() {

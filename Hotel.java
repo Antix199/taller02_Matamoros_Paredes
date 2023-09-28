@@ -81,7 +81,13 @@ public class Hotel {
         System.out.println("la habitación n°" + habitacion + " ha sido desocupada exitosamente.");
     }
 
-    public void imprimirBoleta(int habitacion, int total) {
+    public int calcularMontoTotal(int habitacion){
+        int precioDiario = habitaciones[habitacion][1] == 0 ? 30000 : 45000;
+        int noches = habitaciones[habitacion][2];
+        return precioDiario * noches;
+    }
+    public void imprimirBoleta(int habitacion) {
+        int total = calcularMontoTotal(habitacion);
         System.out.println("\nBoleta de la habitación " + habitacion + ":");
         String comidas = habitaciones[habitacion][1] == 0 ? "Sin comidas" : "Con comidas";
         System.out.println(comidas);
@@ -89,8 +95,8 @@ public class Hotel {
         System.out.println("Monto total a pagar: $" + total);
     }
 
-    public void pagarHabitacion(int habitacion, int total){
-        imprimirBoleta(habitacion,total);
+    public void pagarHabitacion(int habitacion){
+        imprimirBoleta(habitacion);
         System.out.println("¿Desea confirmar el pago de la habitación? /n 1.Confirmar /n 2.Cancelar");
         int confirmacion = entradaUsuario();
         switch (confirmacion){

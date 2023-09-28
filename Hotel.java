@@ -78,12 +78,19 @@ public class Hotel {
             entradaUsuario = scanner.nextInt();
         } catch (InputMismatchException e) {
             System.out.println("Entrada no válida; debes ingresar un número entero.");
-            scanner.nextLine();
         }
         return entradaUsuario;
     }
-  
-   public void confirmarReserva(int habitacion) {
+    public int verificarHabitacion(){
+        int entradaUsuario = entradaUsuario();
+        while (entradaUsuario < 0 || entradaUsuario > 9) {
+            System.out.println("Habitacion inexistente. Intenta de nuevo:");
+
+        }
+        return entradaUsuario;
+    }
+
+    public void confirmarReserva(int habitacion) {
         if (habitaciones[habitacion][0] != 2) {
             System.out.println("La habitación " + habitacion + " no está reservada, no se puede confirmar la reserva.");
         } else {
@@ -155,7 +162,7 @@ public class Hotel {
         }
         else{
             System.out.println("Esta habitación no se encuentra ocupada");
-            }
+        }
     }
 
     public void reiniciarHotel() {
@@ -193,28 +200,28 @@ public class Hotel {
                 break;
             case 2:
                 System.out.println("Ingrese el número de habitación a reservar (0-9):");
-                habitacion = scanner.nextInt();
+                habitacion = verificarHabitacion();
                 System.out.println("Seleccione el tipo de reserva (0: Sin comidas, 1: Con comidas):");
-                opcionComida = scanner.nextInt();
+                opcionComida = entradaUsuario();
                 System.out.println("Ingrese la cantidad de días:");
-                dias = scanner.nextInt();
+                dias = entradaUsuario();
                 ocuparHabitacion(habitacion, opcionComida, dias);
                 break;
             case 3:
                 System.out.println("Ingrese el número de habitación a ocupar (0-9):");
-                habitacion = scanner.nextInt();
+                habitacion = verificarHabitacion();
                 System.out.println("Seleccione el tipo de ocupación (0: Sin comidas, 1: Con comidas):");
                 opcionComida = scanner.nextInt();
                 System.out.println("Ingrese la cantidad de días:");
-                dias = scanner.nextInt();
+                dias = entradaUsuario();
                 reservarHabitacion(habitacion, opcionComida, dias);
                 break;
             case 4:
-                habitacion = scanner.nextInt();
+                habitacion = verificarHabitacion();
                 confirmarReserva(habitacion);
                 break;
             case 5:
-                habitacion = scanner.nextInt();
+                habitacion = verificarHabitacion();
                 cancelarReservacion(habitacion);
                 break;
             case 6:
@@ -226,7 +233,7 @@ public class Hotel {
                 reiniciarHotel();
                 break;
             case 8:
-                habitacion = scanner.nextInt();
+                habitacion = verificarHabitacion();
                 pagarHabitacion(habitacion);
                 break;
             case 9:

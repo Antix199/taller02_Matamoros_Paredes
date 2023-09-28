@@ -1,1 +1,3 @@
 # taller02_Matamoros_Paredes
+Leandro Matamoros:
+Yo me hare cargo de los metodos reservarHabitacion (que se encargara de establecer una habitacion con los dias a ocupar, con o sin comida, pero sin marcar como ocupada esa habitacion), confirmarReserva (si se confirma la reservacion entonces esa habitacion pasara a estar ocupada con los datos de dias y si tiene con o sin comida), ocuparHabitacion (Se encarga de marcar ocupada una habitacion directamente), cancelarReserva (El metodo se encargar de vaciar la habitacion que se ingreso en el metodo reservarHabitacion). Ademas de las pruebas unitarias relacionadas.

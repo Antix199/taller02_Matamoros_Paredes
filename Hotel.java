@@ -12,13 +12,6 @@ public class Hotel {
         scanner = new Scanner(System.in);
         inicializarHabitaciones();
     }
-    public int getEstadoHabitacion(int habitacion) {
-        return habitaciones[habitacion][0];
-    }
-    public int getComidasHabitacion(int comidas){
-        reutrn habitaciones[comidas]
-    }
-
 
     public void inicializarHabitaciones() {
         for (int i = 0; i < 10; i++) {
@@ -73,4 +66,55 @@ public class Hotel {
         System.out.println("9.Salir del sistema");
     }
 
+    public void ejecutarMenu(int opcion) {
+        int habitacion = entradaUsuario();
+        int estado, opcionComida, dias;
+        switch (opcion) {
+            case 1:
+                imprimirHabitaciones();
+                break;
+            case 2:
+                System.out.println("Ingrese el número de habitación a reservar (0-9):");
+                habitacion = scanner.nextInt();
+                System.out.println("Seleccione el tipo de reserva (0: Sin comidas, 1: Con comidas):");
+                opcionComida = scanner.nextInt();
+                System.out.println("Ingrese la cantidad de días:");
+                dias = scanner.nextInt();
+                ocuparHabitacion(habitacion, opcionComida, dias);
+                break;
+            case 3:
+                System.out.println("Ingrese el número de habitación a ocupar (0-9):");
+                habitacion = scanner.nextInt();
+                System.out.println("Seleccione el tipo de ocupación (0: Sin comidas, 1: Con comidas):");
+                opcionComida = scanner.nextInt();
+                System.out.println("Ingrese la cantidad de días:");
+                dias = scanner.nextInt();
+                reservarHabitacion(habitacion, opcionComida, dias);
+                break;
+            case 4:
+                habitacion = scanner.nextInt();
+                confirmarReserva(habitacion);
+                break;
+            case 5:
+                habitacion = scanner.nextInt();
+                cancelarReservacion(habitacion);
+                break;
+            case 6:
+                System.out.println("Ingrese el número de habitación a liberar (0-9):");
+                habitacion = scanner.nextInt();
+                vaciarHabitacion(habitacion);
+                break;
+            case 7:
+                reiniciarHotel();
+                break;
+            case 8:
+                pagarHabitacion(habitacion);
+                break;
+            case 9:
+                System.out.println("Saliendo");
+                break;
+            default:
+                System.out.println("Opción no válida. Intente nuevamente.");
+        }
+    }
 }

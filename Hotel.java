@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.InputMismatchException;
 public class Hotel {
     private int[][] habitaciones;
     private Scanner scanner;
@@ -60,6 +61,19 @@ public class Hotel {
         System.out.println();
     }
 
+    public static int entradaUsuario() {
+        Scanner scanner = new Scanner(System.in);
+        int entradaUsuario = 0;
+        try {
+            entradaUsuario = scanner.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("Entrada no válida; debes ingresar un número entero.");
+            scanner.nextLine();
+        }
+        return entradaUsuario;
+    }
+
+
     public void vaciarHabitacion(int habitacion) {
         cambiarEstadoHabitacion(habitacion, 0);
         asignarComidas(habitacion, 0);
@@ -73,6 +87,22 @@ public class Hotel {
         System.out.println(comidas);
         System.out.println("Cantidad de noches: " + habitaciones[habitacion][2]);
         System.out.println("Monto total a pagar: $" + total);
+    }
+
+    public void pagarHabitacion(int habitacion, int total){
+        imprimirBoleta(habitacion,total);
+        System.out.println("¿Desea confirmar el pago de la habitación? /n 1.Confirmar /n 2.Cancelar");
+        int confirmacion = entradaUsuario();
+        switch (confirmacion){
+            case 1:
+                vaciarHabitacion(habitacion);
+                System.out.println("Pago registrado con éxito, habitación nuevamente disponible.");
+                break;
+            case 2:
+                break;
+            default:
+                System.out.println("Opción inválida. Por favor, seleccione una opción válida.");
+        }
     }
 
     public void reiniciarHotel() {

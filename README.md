@@ -6,6 +6,9 @@ Antonia Paredes: Me haré cargo de los principales métodos dirigidos a vaciar u
 imprimir la boleta (y realizar pagos); y las pruebas unitarias relacionadas; 
 Para las pruebas, en primera instancia planeo intentar vaciar una habitación desocupada, reiniciar el hotel con una contraseña incorrecta, etc.
 ![Captura de pantalla 2023-09-28 111249](https://github.com/Antix199/taller02_Matamoros_Paredes/assets/142464955/faedf97b-8180-4863-b333-4d5b1c1bbb1a)
+![Captura de pantalla (60)](https://github.com/Antix199/taller02_Matamoros_Paredes/assets/142464955/32dcd3e2-27a0-4292-9d6d-eba5a2106fad)
+![Captura de pantalla (59)](https://github.com/Antix199/taller02_Matamoros_Paredes/assets/142464955/f40386d6-914a-4dcb-ae21-0a400595aea9)
+
 #
 Ambos: Finalmente unificaremos todo con la creación de un menú en conjunto.
 #

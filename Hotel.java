@@ -21,6 +21,15 @@ public class Hotel {
         }
     }
 
+    public void confirmarReserva(int habitacion) {
+        if (habitaciones[habitacion][0] != 2) {
+            System.out.println("La habitación " + habitacion + " no está reservada, no se puede confirmar la reserva.");
+        } else {
+            cambiarEstadoHabitacion(habitacion, 1); // Confirmada
+            System.out.println("La reserva de la habitación " + habitacion + " ha sido confirmada exitosamente.");
+        }
+    }
+
     public void reservarHabitacion(int habitacion, int opcionComida, int dias) {
         cambiarEstadoHabitacion(habitacion, 2); // Reservado
         asignarComidas(habitacion, opcionComida);

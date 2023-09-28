@@ -12,6 +12,13 @@ public class Hotel {
         scanner = new Scanner(System.in);
         inicializarHabitaciones();
     }
+    public int getEstadoHabitacion(int habitacion) {
+        return habitaciones[habitacion][0];
+    }
+    public int getComidasHabitacion(int comidas){
+        reutrn habitaciones[comidas]
+    }
+
 
     public void inicializarHabitaciones() {
         for (int i = 0; i < 10; i++) {
@@ -51,6 +58,19 @@ public class Hotel {
         asignarComidas(habitacion, comida);
         establecerDias(habitacion, dias);
         System.out.println("La Habitacion:" + habitacion + " fue ocupada");
+    }
+
+    public void mostrarMenu(){
+        System.out.println("Ingrese el numero para la opcion correspondiente");
+        System.out.println("1.Para mostrar habitaciones");
+        System.out.println("2.Ocupar habitacion");
+        System.out.println("3.Reservar habitacion");
+        System.out.println("4.Confirmar reserva");
+        System.out.println("5.Cancerlar reserva");
+        System.out.println("6.Desocupar habitacion");
+        System.out.println("7.Reiniciar hotel");
+        System.out.println("8.Boleta habitacion");
+        System.out.println("9.Salir del sistema");
     }
 
 }
